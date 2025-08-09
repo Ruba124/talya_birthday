@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Happy Birthday Talya</title>
+<style>
+  body {
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(180deg, #ffe6f2 0%, #fff0f5 100%);
+    font-family: "Georgia", serif;
+    color:#d63384;
+  }
+
+  .card {
+    width:min(920px,94%);
+    background:white;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.1);
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .title {
+    text-align:center;
+    margin:10px 0 20px; /* رفع النص لأعلى */
+  }
+  .title h1 {
+    font-size: clamp(30px,5vw,50px);
+    margin:0;
+    font-weight:bold;
+  }
+
+  /* زر تغيير النص */
+  .change-btn {
+    display:block;
+    margin:15px auto;
+    padding:10px 18px;
+    font-size:16px;
+    background-color:#ffb6c1;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition: background-color 0.3s;
+  }
+  .change-btn:hover {
+    background-color:#ff8fab;
+  }
+
+  /* البالونات */
+  .decor { position:absolute; inset:0; pointer-events:none; }
+  .balloon {
+    --w:70px;
+    width:var(--w);
+    height:calc(var(--w) * 1.15);
+    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 20%),
+               currentColor;
+    border-radius:50% 50% 45% 45%;
+    position:absolute;
+    transform-origin:center bottom;
+    animation: floatUp ease-in-out infinite;
+  }
+  .balloon::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-58px;
+    width:2px;
+    height:58px;
+    background:rgba(0,0,0,0.1);
+    transform:translateX(-50%);
+  }
+  .title {
+  text-align:center;
+  margin:0 0 20px; /* نشيل المسافة من فوق */
+  position: relative;
+  z-index: 5; /* يخليه فوق البالونات */
+}
+.title h1 {
+  font-size: clamp(30px,5vw,50px);
+  margin-top: -40px; /* رفع النص لفوق */
+  font-weight:bold;
+}
+
+
+  @keyframes floatUp{
+    0%{ transform: translateY(8vh) rotate(-3deg) }
+    50%{ transform: translateY(-4vh) rotate(3deg) }
+    100%{ transform: translateY(8vh) rotate(-3deg) }
+  }
+
+  /* ألوان بينك وأبيض */
+  .c1{ color:#ffb6c1; }
+  .c2{ color:#ffc0cb; }
+  .c3{ color:#ffe4e1; }
+  .c4{ color:#fff0f5; }
+  .c5{ color:#ff69b4; }
+  .c6{ color:#ffffff; }
+
+  /* مواقع البالونات */
+  .b1{ left:6%; top:60%; animation-duration:9s; }
+  .b2{ left:14%; top:40%; animation-duration:11s; }
+  .b3{ left:22%; top:72%; animation-duration:10s; }
+  .b4{ left:30%; top:48%; animation-duration:12s; }
+  .b5{ left:38%; top:68%; animation-duration:9.5s; }
+  .b6{ left:46%; top:44%; animation-duration:10.5s; }
+  .b7{ left:54%; top:66%; animation-duration:11.2s; }
+  .b8{ left:62%; top:42%; animation-duration:9.8s; }
+  .b9{ left:70%; top:70%; animation-duration:10.9s; }
+  .b10{ left:78%; top:50%; animation-duration:12.4s; }
+  .b11{ left:4%; top:24%; animation-duration:10.3s; }
+  .b12{ left:18%; top:8%; animation-duration:13s; }
+  .b13{ left:32%; top:12%; animation-duration:11.6s; }
+  .b14{ left:48%; top:6%; animation-duration:12.2s; }
+  .b15{ left:62%; top:16%; animation-duration:9.6s; }
+  .b16{ left:76%; top:10%; animation-duration:10.7s; }
+  .b17{ left:86%; top:28%; animation-duration:11.8s; }
+  .b18{ left:88%; top:76%; animation-duration:12.6s; }
+
+  /* الورود */
+  .roses-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .rose{
+    width:34px;
+    height:34px;
+    animation: bob 6s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%{ transform: translateY(0) rotate(-2deg) }
+    50%{ transform: translateY(-6px) rotate(2deg) }
+    100%{ transform: translateY(0) rotate(-2deg) }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">
+      <h1 id="birthdayText">Happy Birthday Talya</h1>
+    </div>
+
+    <button class="change-btn" onclick="changeText()">Change Text</button>
+
+    <div class="roses-row">
+      <!-- SVG وردة -->
+      <svg style="display:none">
+        <symbol id="rose-symbol" viewBox="0 0 64 64">
+          <rect x="30" y="22" width="4" height="28" rx="2" fill="#ffb6c1"/>
+          <circle cx="32" cy="18" r="10" fill="#ff69b4"/>
+          <circle cx="32" cy="18" r="4" fill="#fff"/>
+        </symbol>
+      </svg>
+
+      <!-- 18 وردة -->
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+      <svg class="rose"><use href="#rose-symbol"></use></svg>
+    </div>
+
+    <!-- البالونات -->
+    <div class="decor">
+      <div class="balloon c1 b1"></div>
+      <div class="balloon c2 b2"></div>
+      <div class="balloon c3 b3"></div>
+      <div class="balloon c4 b4"></div>
+      <div class="balloon c5 b5"></div>
+      <div class="balloon c6 b6"></div>
+      <div class="balloon c1 b7"></div>
+      <div class="balloon c2 b8"></div>
+      <div class="balloon c3 b9"></div>
+      <div class="balloon c4 b10"></div>
+      <div class="balloon c5 b11"></div>
+      <div class="balloon c6 b12"></div>
+      <div class="balloon c1 b13"></div>
+      <div class="balloon c2 b14"></div>
+      <div class="balloon c3 b15"></div>
+      <div class="balloon c4 b16"></div>
+      <div class="balloon c5 b17"></div>
+      <div class="balloon c6 b18"></div>
+    </div>
+  </div>
+
+<script>
+  const texts = [
+    "Happy Birthday Talya 🎂",
+    "Wishing You a Wonderful Year 🌸",
+    "Lots of Love and Joy 💖",
+    "Have a Magical Birthday ✨",
+    "May All Your Dreams Come True 🌟",
+    "a lot of love",
+    "wishing u year full of achievements",
+    "thanks for your support",
+    "18 years full of love and kindess"
+  ];
+  function changeText(){
+    const randomText = texts[Math.floor(Math.random() * texts.length)];
+    document.getElementById("birthdayText").textContent = randomText;
+  }
+</script>
+</body>
+</html>
